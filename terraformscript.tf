@@ -107,20 +107,13 @@ resource "aws_instance" "devops_ec2" {
   ami           = "ami-0ae74ae9c43584639"
   instance_type = "t2.micro"
   key_name      = "winter_key"
-  subnet_id     = "aws_subnet.piblic.id"
+  subnet_id     = "aws_subnet.public.id"
   security_groups = [aws_security_group.devops_SG.id]
 
   tags = {
     Name = "devops_ec2"
   }
 }
-
-
-
-
-
-
-
 
 
 
