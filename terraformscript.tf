@@ -24,17 +24,13 @@ resource "aws_subnet" "private" {
 resource "aws_subnet" "public" {
   vpc_id     = aws_vpc.devops_vpc.id
   cidr_block = "10.0.1.0/24"
-<<<<<<< HEAD
   map_public_ip_on_launch = true
-=======
->>>>>>> origin
 
   tags = {
     Name = "devops_publicSubnet"
   }
 }
 
-<<<<<<< HEAD
 resource "aws_internet_gateway" "devops-GW" {
   vpc_id = aws_vpc.devops_vpc.id
 
@@ -65,16 +61,3 @@ resource "aws_route_table_association" "association_public" {
   subnet_id      = aws_subnet.public.id
   route_table_id = aws_route_table.devops-R.id
 }
-
-
-
-
-
-
-
-
-
-
-=======
->>>>>>> origin
-
