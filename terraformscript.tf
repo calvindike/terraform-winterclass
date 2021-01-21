@@ -31,4 +31,10 @@ resource "aws_subnet" "public" {
   }
 }
 
+resource "aws_internet_gateway" "devops-GW" {
+  vpc_id = aws_vpc.devops_vpc.id
 
+  tags = {
+    Name = "devops_gateway"
+  }
+}
