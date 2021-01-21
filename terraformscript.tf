@@ -38,3 +38,37 @@ resource "aws_internet_gateway" "devops-GW" {
     Name = "devops_gateway"
   }
 }
+
+resource "aws_route_table" "devops-R" {
+  vpc_id = aws_vpc.devops_vpc.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.devops-GW.id
+  }
+
+  tags = {
+    Name = "devops_route"
+  }
+}
+
+resource "aws_route_table_association" "association_private" {
+  subnet_id      = aws_subnet.private.id
+  route_table_id = aws_route_table.devops-R.id
+}
+
+resource "aws_route_table_association" "association_public" {
+  subnet_id      = aws_subnet.public.id
+  route_table_id = aws_route_table.devops-R.id
+}
+
+
+
+
+
+
+
+
+
+
+
