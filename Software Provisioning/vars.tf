@@ -14,9 +14,30 @@ variable "AWS_REGION" {
     default = "us-east-1"
 }
 
+variable "vpc_id" {
+    type = string
+    description = "VPC id"
+}
+
+variable "cidr_block" {
+    type = string
+    description = "Subnet cidr block"
+}
+
 variable "key_name" {
     type = string
     description = "key pair for logging into EC2"
     default = "winter_key"
 }
+
+variable "instance_name" {
+    type = string
+    description = "Name of EC2 instance"
+}
+
+variable "instance_type" {
+    type = string
+    description = "Type of EC2 eg. t2.micro"
+}
+
 
